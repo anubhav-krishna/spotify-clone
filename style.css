@@ -1,0 +1,641 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page {
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    overflow: auto;
+}
+
+.content {
+    height: 87%;
+    margin: 8px;
+    gap: 8px;
+    display: flex;
+}
+
+.SideBar {
+    width: 23.2%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.UpperSide {
+    background-color: rgb(18, 18, 18);
+    border-radius: 8px;
+    height: 26.5%;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.LowerSide {
+    background-color: rgb(18, 18, 18);
+    border-radius: 8px;
+    height: calc(83.5% - 8px);
+    overflow-y: auto;
+}
+
+.Main {
+    background-color: rgb(18, 18, 18);
+    width: calc(100% - 23.2% - 8px);
+    border-radius: 8px;
+    overflow-y: auto;
+}
+
+.Player {
+    height: calc(13% - 16px);
+}
+
+.UpperSide span {
+    color: rgb(179, 166, 166);
+    font-size: 16px;
+    font-weight: 750;
+    padding-top: 1px;
+    margin-left: 18px;
+}
+
+.UpperSide .logo svg {
+    margin-left: 3px;
+    fill: white;
+}
+
+i {
+    color: rgb(179, 166, 166);
+    font-size: 25px;
+}
+
+.Home {
+    display: flex;
+    align-items: center;
+
+    span {
+        color: white;
+    }
+}
+
+.Home:hover {
+    cursor: pointer;
+
+    span {
+        color: white;
+    }
+}
+
+.Search {
+    display: flex;
+    align-items: center;
+}
+
+.Search:hover {
+    cursor: pointer;
+
+    span {
+        color: white;
+    }
+
+    i {
+        color: white;
+    }
+}
+
+.LibraryHead {
+    height: 12%;
+    /* border-bottom:3px solid rgb(22, 22, 22) ;
+    box-shadow:0px 4px 5px rgb(18, 17, 17); */
+    position: relative;
+}
+
+.LibraryContent {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    height: 46%;
+}
+
+.footer {
+    height: 33%;
+    padding-top: 33px;
+    padding-left: 23px;
+}
+
+.LibraryHead .Expanded {
+    /* background-color: aqua; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.LibraryHead .Shrink {
+    display: none;
+    background-color: aliceblue;
+    height: 100%;
+}
+
+.LibraryHead .Expanded .Upper {
+    /* background-color: azure; */
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.LibraryHead .Expanded .Upper .left {
+    /* background-color: blue; */
+    width: 45%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.LibraryHead .Expanded .Upper .left span {
+    color: rgb(166, 166, 166);
+    /* background-color: red; */
+    font-size: 15px;
+    font-weight: 750;
+    margin-left: 10px;
+}
+
+.LibraryHead .Expanded .Upper .left svg path {
+    fill: rgb(166, 166, 166);
+}
+
+.LibraryHead .Expanded .Upper .left:hover {
+    span {
+        color: white;
+    }
+
+    path {
+        fill: white;
+    }
+
+    cursor: pointer;
+}
+
+.LibraryHead .Expanded .Upper .right {
+    /* background-color: blue; */
+    /* width: 22%; */
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.LibraryHead .Expanded .Upper .right svg path {
+    fill: rgb(166, 166, 166);
+}
+
+.LibraryHead .Expanded .Upper .right svg:hover {
+    path {
+        fill: white;
+    }
+
+    border-radius: 50%;
+    background-color: rgb(33, 33, 33);
+    cursor: pointer;
+}
+
+.LibraryHead .Expanded .Lower {
+    height: 50%;
+    /* background-color: red; */
+    /* display: flex; */
+    align-items: center;
+    padding-left: 17px;
+    gap: 10px;
+    display: none;
+}
+
+.LibraryHead .Expanded .Lower span {
+    background-color: rgb(40, 40, 40);
+    padding: 5px 11px 9px 13px;
+    color: white;
+    font-size: 14px;
+    border-radius: 30px;
+    font-weight: 550;
+}
+
+.LibraryHead .Expanded .Lower span:hover {
+    background-color: rgb(48, 48, 48);
+    cursor: pointer;
+}
+
+.arrow {
+    display: none;
+}
+
+.LibraryContent .Upper {
+    display: none;
+}
+
+.InitialLibrary-Card {
+    height: 120px;
+    margin: 8px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    background-color: #242424;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 14px;
+    gap: 9px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(22, 22, 22);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 0%, 100%, .3);
+}
+
+.LibraryContent:hover {
+    overflow-y: scroll;
+}
+
+.InitialLibrary-Card .h1 {
+    /* background-color: red; */
+    font-size: 16px;
+    font-weight: 750;
+    color: white;
+}
+
+.InitialLibrary-Card span:hover {
+    cursor: context-menu;
+}
+
+.InitialLibrary-Card .txt {
+    color: white;
+    font-size: 13.5px;
+    font-weight: 750;
+}
+
+.InitialLibrary-Card button {
+    margin-top: 13px;
+    font-size: 14.5px;
+    width: fit-content;
+    border-radius: 28px;
+    font-weight: 600;
+    padding: 5px 17px 7px 16px;
+    border: none;
+}
+
+.InitialLibrary-Card button:hover {
+    cursor: pointer;
+    padding: 7px 20px 9px 19px;
+    margin-top: 11px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.SideBar .LowerSide .footer span {
+    color: rgb(166, 166, 166);
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 17px;
+}
+
+.SideBar .LowerSide .footer .language {
+    border-radius: 28px;
+    padding: 5px 0px 7px 13px;
+    border: 1px solid grey;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    gap: 5px;
+}
+
+.SideBar .LowerSide .language span {
+    font-size: 14px;
+    color: white;
+    font-weight: 700;
+}
+
+.SideBar .LowerSide .footer span:hover {
+    cursor: pointer;
+}
+
+.SideBar .LowerSide .footer button:hover {
+    cursor: pointer;
+    margin-top: -1px;
+    padding: 6px 1px 8px 14px;
+    border: 1px solid white;
+}
+
+/* Main Content */
+/* Upperbar */
+.Main .Upper {
+    display: flex;
+    background-color: hsla(0, 0%, 0%, .3);
+    height: 64px;
+    justify-content: space-between;
+    border-radius: 8px;
+    position: fixed;
+    right: 8px;
+    left: calc(23.2% + 12px);
+}
+
+.Main .Upper .arrows {
+    display: flex;
+    width: 120px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.Main .Upper .arrows svg {
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.Main .Upper .arrows svg:hover {
+    cursor: not-allowed;
+}
+
+.Main .Upper .login-signup {
+    width: 200px;
+    margin-right: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.Main .Upper .login-signup .login {
+    width: 110px;
+    height: fit-content;
+    padding-top: 12px;
+    padding-bottom: 14px;
+    border-radius: 28px;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.Main .Upper .login-signup .login:hover {
+    padding-top: 14px;
+    padding-bottom: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.Main .Upper .login-signup .signup {
+    width: 88px;
+    font-size: 15px;
+    padding-right: 23px;
+    padding-bottom: 3px;
+    font-weight: 700;
+    border: none;
+    background-color: transparent;
+    color: rgb(179, 166, 166);
+}
+
+.Main .Upper .login-signup .signup:hover {
+    color: white;
+    font-size: 16.2px;
+    cursor: pointer;
+}
+
+.Main-Content .overlapped {
+    height: 64px;
+}
+
+.Main-Content .header {
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    height: 55px;
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+.Main-Content .header .one {
+    font-size: 22px;
+    margin-top: 2px;
+    color: white;
+    font-weight: 750;
+}
+
+.Main-Content .header span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.Main-Content .header .two {
+    color: rgb(179, 166, 166);
+    font-weight: 650;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.Main-Content .cardpage {
+    width: 97%;
+    /* background-color: red; */
+    display: flex;
+    padding-left: 25px;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.cardpage .card {
+    background-color: #181818;
+    height: 18.5vw;
+    width: 13vw;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-top: 15px; */
+    /* justify-content:space-around; */
+}
+
+.cardpage .card:hover {
+    /* background-color: #292929; */
+    cursor: pointer;
+    animation-name: cardanime;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+
+    .playbutton {
+        animation-name: buttonup;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes cardanime {
+    from {
+        background-color: #181818;
+    }
+
+    to {
+        background-color: #292929;
+    }
+}
+
+@keyframes buttonup {
+    from {
+        bottom: 0px;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 10px;
+        opacity: 1;
+    }
+}
+
+.card .card-content {
+    width: 86%;
+    height: 88%;
+    margin-top: calc(9vw - 90/200 * 18vw);
+    /* background-color: #242424; */
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    position: relative;
+}
+
+.card .img-button {
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.playbutton {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding-top: 12px;
+    text-align: center; */
+    background-color: #1ed760;
+    border-radius: 50%;
+    bottom: 0px;
+    right: 8px;
+    opacity: 0;
+}
+
+.playbutton:hover {
+    border: 1px solid #1ed760;
+    right: 7px;
+    top: calc(100% - 59px);
+}
+
+.card .discribe {
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: column;
+}
+
+.card .discribe .one {
+    color: white;
+    font-weight: 700;
+}
+
+.card .discribe .two {
+    margin-top: 3px;
+    font-size: 14.1px;
+    font-weight: 600;
+    color: rgb(179, 166, 166);
+}
+
+.main-footer {
+    margin-top: 100px;
+}
+
+.main-footer .part-one {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: red; */
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.main-footer .part-one .left {
+    display: flex;
+    /* background-color: green; */
+    gap: 135px;
+}
+
+.main-footer .part-one .right {
+    padding-top: 5px;
+    display: flex;
+    /* background-color: #43858f; */
+    gap: 15px;
+}
+
+.main-footer .part-one .right svg {
+    fill: white;
+    margin-top: 11px;
+}
+
+.main-footer .part-one .right .svgholder {
+    background-color: #292929;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.main-footer .part-one .right .svgholder:hover {
+    background-color: #9fcbd376;
+    cursor: pointer;
+}
+
+.main-footer .part-one .left .line {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-footer .part-one .left .line .head {
+    color: white;
+    font-weight: 700;
+}
+
+.main-footer .part-one .left .line span {
+    color: rgb(179, 166, 166);
+    font-weight: 600;
+}
+
+.main-footer .part-one .left .line .lnks:hover {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.main-footer .part-two {
+    border-top: 1px solid rgb(51, 48, 48);
+    margin: 30px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    padding-top: 40px;
+    color: rgb(166, 166, 166);
+    font-size: 15px;
+    font-weight: 600;
+    /* background-color: aqua; */
+}
